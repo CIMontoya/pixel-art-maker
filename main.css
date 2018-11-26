@@ -1,5 +1,5 @@
 body {
-  background-color: lawngreen;
+  background-image: url(https://images.homedepot-static.com/productImages/3ebbf1da-99ff-40b7-af52-45d6c726c929/svn/bruce-solid-hardwood-c1134-64_1000.jpg);
 }
 .centerHeader {
   display: flex;
@@ -10,9 +10,12 @@ h1 {
   font-family: fantasy;
   margin-bottom: -30px;
   margin-top: 30px;
+  color: ivory;
 }
 h3 {
   font-size: 18px;
+  color: white;
+  margin-left: 13px;
 }
 .colorPalette {
   display: flex;
@@ -40,7 +43,7 @@ h3 {
 .flexRow {
   display: flex;
   flex-direction: row;
-  align-items: center;
+  align-items: flex-end;
 }
 div .row {
   position: relative;
