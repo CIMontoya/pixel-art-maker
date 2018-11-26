@@ -1,4 +1,4 @@
-                    Pixel Art Maker
+                                     Pixel Art Maker
 
 Surge Link: cimontoya-pixel-art-maker.surge.sh
 
