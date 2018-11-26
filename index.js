@@ -3,7 +3,7 @@ document.addEventListener("DOMContentLoaded", function(){
 var row = document.querySelector(".row")
 var colorDivs = document.querySelectorAll(".circle")
 var currentColor = ""
-var colorPicker = document.querySelector('.colorPick')
+var colorPicker = document.querySelector(".colorPick")
 var mouseIsDown = false
 var currentColorIndicator = document.querySelector(".currentColor")
 
@@ -37,11 +37,11 @@ function changePixelColorByDrag(e) {
 
 for(var i = 1; i <= 1950;i++) {
   if((i - 1) % 65 === 0 || i === 1) {
-    pixels = document.createElement("div")
+    var pixels = document.createElement("div")
     pixels.classList.add("div", "borderLeft")
   }
   else {
-    var pixels = document.createElement("div")
+    pixels = document.createElement("div")
     pixels.classList.add("div")
   }
   pixels.onmousedown = changePixelColor
