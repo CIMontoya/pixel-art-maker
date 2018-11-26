@@ -1,0 +1,108 @@
+body {
+  background-color: lawngreen;
+}
+.centerHeader {
+  display: flex;
+  justify-content: center;
+}
+h1 {
+  font-size: 150px;
+  font-family: fantasy;
+  margin-bottom: -30px;
+  margin-top: 30px;
+}
+h3 {
+  font-size: 18px;
+}
+.colorPalette {
+  display: flex;
+  flex-direction: column;
+}
+.circle {
+  width: 40px;
+  height: 40px;
+  border: solid black 1px;
+  border-radius: 50%
+}
+.colorPick {
+  width: 40px;
+  height: 40px;
+  border: solid black 1px;
+  border-radius: 50%
+}
+.flexBox {
+  display: flex;
+  flex-direction: row;
+}
+.column {
+  position: absolute;
+}
+.flexRow {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+div .row {
+  position: relative;
+  width: 1300px;
+  left: 50px;
+  background-color: white;
+}
+div .div{
+  width: 20px;
+  height: 20px;
+  border: black solid 1px;
+  border-left: none;
+  display: block;
+}
+div .borderLeft {
+  border-left: black solid 1px;
+}
+.currentColor {
+  width: 98px;
+}
+.red {
+  background-color: red;
+}
+.blue {
+  background-color: blue;
+}
+.green {
+  background-color: green;
+}
+.yellow {
+  background-color: yellow;
+}
+.black {
+  background-color: black;
+}
+.pink {
+  background-color: pink;
+}
+.white {
+  background-color: white;
+}
+.deepPink {
+  background-color: deepPink;
+}
+.limegreen {
+  background-color: limegreen;
+}
+.aqua {
+  background-color: aqua;
+}
+.purple {
+  background-color: purple;
+}
+.orange {
+  background-color: orange;
+}
+.burlywood {
+  background-color: burlywood;
+}
+.indigo {
+  background-color: indigo;
+}
+.silver {
+  background-color: silver;
+}
