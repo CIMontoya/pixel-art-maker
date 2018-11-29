@@ -1,11 +1,11 @@
-                                     Pixel Art Maker
+# Pixel Art Maker
 
 Surge Link: cimontoya-pixel-art-maker.surge.sh
 
-How it Looks:
+## How it Looks:
 
 ![MyProject](pixel-art-maker.png)
 
-Example Drawings:
+## Early Version Example Drawings:
 
 ![exampleArt](exampleDesigns.png)
