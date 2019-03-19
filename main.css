@@ -111,14 +111,14 @@ div .borderLeft {
 }
 .saveBut {
   position: relative;
-  left: 935px;
+  left: 745px;
   margin-bottom: 5px;
 }
 .loadBut {
   position: relative;
   width: 100px;
   height: 29px;
-  left: 935px;
+  left: 745px;
   margin-bottom: 5px;
   margin-left: 5px;
 }
@@ -155,4 +155,10 @@ div .borderLeft {
   left: 600px;
   z-index: 1;
   margin: 5px;
+}
+.bucket {
+  margin-left: 50px;
+  width: 38px;
+  height: 38px;
+  filter: invert(1);
 }

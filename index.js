@@ -11,6 +11,8 @@ document.addEventListener("DOMContentLoaded", function(){
   var loadButton = document.querySelector(".loadBut")
   var array = []
   var availableDrawings
+  var bucket = document.querySelector(".bucket")
+  var fillTool = false
 
   function changeSelectedColor(e) {
     currentColor = e.target.classList[1]
@@ -31,11 +33,27 @@ document.addEventListener("DOMContentLoaded", function(){
   }
 
   function changePixelColor(e) {
-    e.target.style.background = currentColor
+    if(fillTool === false) {
+      e.target.style.background = currentColor
+    } else {
+      fillDivs(e.target)
+    }
   }
 
+  function fillDivs(div, i = 1) {
+      if(div.nextSibling.style.background === 'white' || div.nextSibling.style.background === currentColor) {
+        div.nextSibling.style.background = currentColor
+        fillDivs(div.nextSibling)
+      }
+      if(div.previousSibling.style.background === "white" || div.previousSibling.style.background === currentColor) {
+        div.previousSibling.style.background = currentColor
+        fillDivs(div.previousSibling)
+      }
+  }
+
+
   function changePixelColorByDrag(e) {
-    if(mouseIsDown === true) {
+    if(mouseIsDown === true && fillTool === false) {
       e.target.style.background = currentColor
     }
   }
@@ -79,6 +97,11 @@ function allStorage() {
     availableDrawings.addEventListener("change", loadDrawing)
   }
 
+  function fill() {
+    fillTool = true
+    console.log(fillTool)
+  }
+
   function loadDrawing(e) {
       let colors = JSON.parse(localStorage.getItem(e.target.selectedOptions[0].value))
       var divs = document.querySelectorAll(".div")
@@ -86,8 +109,8 @@ function allStorage() {
         removeElement(divs[k].id)
       }
 
-      for(var i = 0; i < colors.length;i++) {
-        if((i) % 65 === 0 || i === 0) {
+      for(var i = 1; i <= colors.length;i++) {
+        if((i - 1) % 65 === 0 || i === 1) {
           var pixels = document.createElement("div")
           pixels.classList.add("div", "borderLeft")
           pixels.style.background = colors[i]
@@ -136,4 +159,6 @@ function allStorage() {
   submitButton.addEventListener("click", saveDrawing)
 
   loadButton.addEventListener("click", showAvailableDrawings)
+
+  bucket.addEventListener("click", fill)
 })
