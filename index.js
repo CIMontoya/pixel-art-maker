@@ -12,10 +12,14 @@ document.addEventListener("DOMContentLoaded", function(){
   var array = []
   var availableDrawings
   var bucket = document.querySelector(".bucketCont")
+  var bucketIcon = document.querySelector(".bucket")
   var brush = document.querySelector(".brushCont")
+  var brushIcon = document.querySelector(".brush")
   var fillTool = false
 
   currentColorIndicator.style.background = 'white'
+  brushIcon.style.border = `red 2px solid`
+
 
   function changeSelectedColor(e) {
     currentColor = e.target.classList[1]
@@ -145,10 +149,15 @@ function allStorage() {
 
   function fill() {
     fillTool = true
+    bucketIcon.style.border = `red 2px solid`
+    brushIcon.style.border = `none`
   }
 
   function noFill() {
     fillTool = false
+    brushIcon.style.border = `red 2px solid`
+    bucketIcon.style.border = `none`
+
   }
 
   function loadDrawing(e) {

@@ -14,8 +14,10 @@ h1 {
 }
 h3 {
   font-size: 18px;
+  font-family: fantasy;
   color: white;
   margin-left: 13px;
+  margin-top: 10px;
 }
 .colorPalette {
   display: flex;
@@ -111,14 +113,14 @@ div .borderLeft {
 }
 .saveBut {
   position: relative;
-  left: 745px;
+  left: 545px;
   margin-bottom: 5px;
 }
 .loadBut {
   position: relative;
   width: 100px;
   height: 29px;
-  left: 745px;
+  left: 545px;
   margin-bottom: 5px;
   margin-left: 5px;
 }
@@ -171,12 +173,10 @@ div .borderLeft {
 .brushCont {
   display: flex;
   flex-flow: row;
-  justify-content: center;
   align-items: center;
 }
 .bucketCont {
   display: flex;
   flex-flow: row;
-  justify-content: center;
   align-items: center;
 }
