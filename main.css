@@ -162,3 +162,21 @@ div .borderLeft {
   height: 38px;
   filter: invert(1);
 }
+.brush {
+  margin-left: 50px;
+  width: 38px;
+  height: 38px;
+  filter: invert(1);
+}
+.brushCont {
+  display: flex;
+  flex-flow: row;
+  justify-content: center;
+  align-items: center;
+}
+.bucketCont {
+  display: flex;
+  flex-flow: row;
+  justify-content: center;
+  align-items: center;
+}

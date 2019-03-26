@@ -11,8 +11,11 @@ document.addEventListener("DOMContentLoaded", function(){
   var loadButton = document.querySelector(".loadBut")
   var array = []
   var availableDrawings
-  var bucket = document.querySelector(".bucket")
+  var bucket = document.querySelector(".bucketCont")
+  var brush = document.querySelector(".brushCont")
   var fillTool = false
+
+  currentColorIndicator.style.background = 'white'
 
   function changeSelectedColor(e) {
     currentColor = e.target.classList[1]
@@ -144,6 +147,10 @@ function allStorage() {
     fillTool = true
   }
 
+  function noFill() {
+    fillTool = false
+  }
+
   function loadDrawing(e) {
       let colors = JSON.parse(localStorage.getItem(e.target.selectedOptions[0].value))
       var divs = document.querySelectorAll(".div")
@@ -202,4 +209,5 @@ function allStorage() {
   loadButton.addEventListener("click", showAvailableDrawings)
 
   bucket.addEventListener("click", fill)
+  brush.addEventListener("click", noFill)
 })
