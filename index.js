@@ -36,21 +36,64 @@ document.addEventListener("DOMContentLoaded", function(){
     if(fillTool === false) {
       e.target.style.background = currentColor
     } else {
-      fillDivs(e.target)
+      fillDivs(e.target, e.target.id)
     }
   }
 
-  function fillDivs(div, i = 1) {
-      if(div.nextSibling.style.background === 'white' || div.nextSibling.style.background === currentColor) {
-        div.nextSibling.style.background = currentColor
-        fillDivs(div.nextSibling)
-      }
-      if(div.previousSibling.style.background === "white" || div.previousSibling.style.background === currentColor) {
-        div.previousSibling.style.background = currentColor
-        fillDivs(div.previousSibling)
-      }
-  }
+  function fillDivs(div, i, leftPaths = [], rightPaths = []) {
+    let colorToReplace = div.style.background
+    let u = 1
+    let d = 1
+    let upPath
+    let downPath
+    let id = +i
 
+    while (u !== 0) {
+      if(div.parentNode.children[id - 65] && div.parentNode.children[id - 65].style.background === colorToReplace) {
+        id -= 65
+        upPath = div.parentNode.children[id]
+      }
+      else if (upPath){
+        upPath.style.background = currentColor
+        if(upPath.nextSibling && upPath.nextSibling.style.background === colorToReplace && (id + 1) % 65 !== 0) {
+          rightPaths.push(upPath.nextSibling)
+        }
+        if(+upPath.id === 0) {
+          leftPaths = []
+        } else if(upPath.previousSibling && upPath.previousSibling.style.background === colorToReplace) {
+          leftPaths.push(upPath.previousSibling)
+        }
+        u -= 1
+      } else {
+        upPath = div
+      }
+    }
+    while (d !== 0) {
+      if(div.parentNode.children[id + 65] && div.parentNode.children[id + 65].style.background === colorToReplace) {
+        id += 65
+        downPath = div.parentNode.children[id]
+        downPath.style.background = currentColor
+        if(downPath.nextSibling && downPath.nextSibling.style.background === colorToReplace && downPath.parentNode.children[id - 65].nextSibling.style.background !== colorToReplace) {
+          rightPaths.push(downPath.nextSibling)
+        }
+        if(downPath.previousSibling && downPath.previousSibling.style.background === colorToReplace && downPath.parentNode.children[id - 65].previousSibling.style.background !== colorToReplace){
+          leftPaths.push(downPath.previousSibling)
+        }
+      }
+      else {
+        d -= 1
+      }
+    }
+    if(rightPaths.length > 0) {
+      let newRight = [...rightPaths]
+      newRight.shift()
+      fillDivs(rightPaths[0], rightPaths[0].id, leftPaths, newRight)
+    } else if (leftPaths.length > 0) {
+      let newLeft = [...leftPaths]
+      newLeft.shift()
+      fillDivs(leftPaths[0], leftPaths[0].id, newLeft, [])
+    }
+  }
 
   function changePixelColorByDrag(e) {
     if(mouseIsDown === true && fillTool === false) {
@@ -99,7 +142,6 @@ function allStorage() {
 
   function fill() {
     fillTool = true
-    console.log(fillTool)
   }
 
   function loadDrawing(e) {
@@ -120,7 +162,6 @@ function allStorage() {
           pixels.classList.add("div")
           pixels.style.background = colors[i]
         }
-        console.log(colors[i])
         pixels.id = i
         pixels.onmousedown = changePixelColor
         pixels.addEventListener('mousedown', mouseDown)
@@ -130,8 +171,8 @@ function allStorage() {
       }
   }
 
-  for(var i = 1; i <= 1950;i++) {
-    if((i - 1) % 65 === 0 || i === 1) {
+  for(var i = 0; i < 1950;i++) {
+    if((i) % 65 === 0 || i === 0) {
       var pixels = document.createElement("div")
       pixels.classList.add("div", "borderLeft")
       pixels.style.background = "white"
