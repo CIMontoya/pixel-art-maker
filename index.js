@@ -18,8 +18,9 @@ document.addEventListener("DOMContentLoaded", function(){
   var fillTool = false
 
   currentColorIndicator.style.background = 'white'
-  brushIcon.style.border = `red 2px solid`
-
+  brushIcon.style.border = `white 2px solid`
+  brushIcon.style.borderRadius = '10px 10px 10px 10px'
+  brushIcon.style.background = 'rgba(255, 255, 255, 0.6)'
 
   function changeSelectedColor(e) {
     currentColor = e.target.classList[1]
@@ -149,15 +150,21 @@ function allStorage() {
 
   function fill() {
     fillTool = true
-    bucketIcon.style.border = `red 2px solid`
+    bucketIcon.style.border = `white 2px solid`
+    bucketIcon.style.borderRadius = '10px 10px 10px 10px'
+    bucketIcon.style.background = 'rgba(255, 255, 255, 0.6)'
     brushIcon.style.border = `none`
+    brushIcon.style.background = 'none'
+
   }
 
   function noFill() {
     fillTool = false
-    brushIcon.style.border = `red 2px solid`
+    brushIcon.style.border = `white 2px solid`
+    brushIcon.style.borderRadius = '10px 10px 10px 10px'
+    brushIcon.style.background = 'rgba(255, 255, 255, 0.6)'
     bucketIcon.style.border = `none`
-
+    bucketIcon.style.background = 'none'
   }
 
   function loadDrawing(e) {
